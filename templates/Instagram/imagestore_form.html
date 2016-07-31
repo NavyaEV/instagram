@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Form</title>
+    <style type="text/css">
+        div {
+            width: 1200px;
+            height: 450px;
+            padding: 10px;
+            margin: 10px;
+            opacity: 0.9;
+        }
+        #colors {
+            background-color: lightyellow;
+            clear: left;
+            float: left;
+        }
+        body{
+            background-color: lightcyan;
+        }
+        p{
+            font-family: "Times New Roman";
+            font-size: large;
+        }
+    </style>
+
+</head>
+<body>
+<h2>Basic Instagram</h2><br>
+<p>Add ur image here</p>
+<br><br><br><br>
+<div id="colors">
+    <center>
+        <br><br><br>
+    <form  action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="SUBMIT" >
+    </form>
+    </center>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <style type="text/css">
+        div {
+            width: 1200px;
+            height: 450px;
+            padding: 10px;
+            margin: 10px;
+            opacity: 0.9;
+        }
+        #colors {
+            background-color: lightyellow;
+            clear: left;
+            float: left;
+        }
+                    body{
+            background-color: lightcyan;
+        }
+
+        </style>
+
+</head>
+<body>
+<h1>Basic Instagram</h1>
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+<h3>{% block head %}Login{% endblock %}</h3>
+
+{% block content %}
+    <div id="colors">
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    <form method="post" action=".">{% csrf_token %}
+        <table border="0">
+            <tr><th><label for="id_username">Username:</label></th><td>{{ form.username }}</td></tr>
+            <tr><th><label for="id_password">Password:</label></th><td>{{ form.password }}</td></tr>
+        </table>
+        <input type="submit" value="Login" />
+        <input type="hidden" name="next" value="/home" />
+    </form>
+    <br>
+    <a href="/register">Register</a>
+    </div>
+{% endblock %}
+</body>
+</html>

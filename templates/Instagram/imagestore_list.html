@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Images Display</title>
+    <style type="text/css">
+        div {
+            width: 1200px;
+            height: 450px;
+            padding: 10px;
+            margin: 10px;
+            opacity: 0.9;
+        }
+        #colors {
+            background-color: lightyellow;
+            clear: left;
+            float: left;
+        }
+        #space{
+            tab-size: 50cm;
+        }
+        body{
+            background-color: lightcyan;
+        }
+        li {
+           float: left;
+        }
+
+        li a {
+            display: block;
+            color: red;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: gray;
+        }
+        ul{
+            background-color: black;
+        }
+
+    </style>
+
+</head>
+<body>
+{% extends "base.html" %}
+<h2>
+{% block title %}Basic Instagram{% endblock %}
+{% block head %}Basic Instagram{% endblock %}
+</h2>
+{% block content %}
+    <p id="space"><h3>Welcome {{ user.username }}</h3>
+    <ul>
+    <li style="float:right"><a href="/logout/">Logout</a></li>
+    </ul>
+    </p>
+
+    <br><br><br><br><br><br>
+    <button><a href="add">ADD</a></button>
+    </center>
+    <br><br>
+    {%for i in imagestore_list%}
+        <div id="colors" align="center">
+            <br>
+            <img src="{{  i.image.url }}" align="center" width="500" height="400"> <br>
+            {{ i.status }}
+        </div>
+        <br><br>
+        <br><br>
+    {% endfor %}
+{% endblock %}
+
+</body>
+</html>

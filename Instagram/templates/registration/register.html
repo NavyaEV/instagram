@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+            <style type="text/css">
+        div {
+            width: 1200px;
+            height: 450px;
+            padding: 10px;
+            margin: 10px;
+            opacity: 0.9;
+        }
+        #colors {
+            background-color: lightyellow;
+            clear: left;
+            float: left;
+        }
+                    body{
+            background-color: lightcyan;
+        }
+
+        </style>
+
+</head>
+<body>
+<h1>Basic Instagram</h1>
+{% extends "base.html" %}
+{% block title %}User Registration{% endblock %}
+{% block head %}User Registration{% endblock %}
+{% block content %}
+    <div id="colors">
+    <form method="post" action=".">{% csrf_token %}
+        <table border="0">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Register" />
+    </form><br>
+    <a href="/">Login</a>
+    </div>
+{% endblock %}
+</body>
+</html>
